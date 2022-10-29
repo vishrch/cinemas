@@ -1,40 +1,38 @@
+import React from 'react';
+import {Text, View} from 'react-native';
+import Button from '../Button';
+import {styles} from './styles';
+import IcFilter from '@src/assets/images/filter.svg';
 import {COLORS} from '@src/constants/styles';
 import {commonStyles} from '@src/styles/commonStyles';
-import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import Button from '../Button';
 
 interface ISectionHeader {
   title: string;
   onViewAll?: () => void;
+  showFilter?: boolean;
+  onFilter?: () => void;
 }
 
-const SectionHeader: React.FC<ISectionHeader> = ({title, onViewAll}) => {
+const SectionHeader: React.FC<ISectionHeader> = ({
+  title,
+  onViewAll,
+  showFilter,
+  onFilter = () => {},
+}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
-      <Button
-        labelStyle={styles.viewAllText}
-        label="View All"
-        onPress={onViewAll}
-      />
+      <View style={[commonStyles.flexRow, commonStyles.center]}>
+        {showFilter && (
+          <IcFilter color={COLORS.LIGHT_BLUE} onPress={() => onFilter()} />
+        )}
+        <Button
+          labelStyle={styles.viewAllText}
+          label="View All"
+          onPress={onViewAll}
+        />
+      </View>
     </View>
   );
 };
 export default SectionHeader;
-
-const styles = StyleSheet.create({
-  title: {
-    ...commonStyles.fs_18,
-    ...commonStyles.labelWeight600,
-  },
-  container: {
-    ...commonStyles.flexRow,
-    ...commonStyles.justifyContentBetween,
-    ...commonStyles.ph_24,
-    ...commonStyles.alignItemsCenter,
-  },
-  viewAllText: {
-    color: COLORS.LIGHT_BLUE,
-  },
-});

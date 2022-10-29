@@ -12,7 +12,7 @@ export enum COMPONENT_SIZE {
 export enum COLORS {
   WHITE = '#ffffff',
   BLACK = '#000000',
-  LIGHT_BLUE = '#42bcf5',
+  LIGHT_BLUE = '#2bb1f0',
 }
 
 export const ScreenWidth = Dimensions.get('window').width;

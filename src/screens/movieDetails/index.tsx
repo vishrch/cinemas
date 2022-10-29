@@ -1,16 +1,15 @@
+import Header from '@src/components/Header';
 import {COLORS} from '@src/constants/styles';
 import {commonStyles} from '@src/styles/commonStyles';
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {useSelector} from 'react-redux';
-import {IMovies} from 'src/store/movieReducer';
 
 const MovieDetails: React.FC = ({}) => {
-  const movies = useSelector(
-    (state: {MovieReducer: IMovies}) => state.MovieReducer.movies,
+  return (
+    <View style={styles.container}>
+      <Header arrowColor={COLORS.WHITE} buttonStyle={styles.backButtonStyle} />
+    </View>
   );
-
-  return <View style={styles.container}></View>;
 };
 
 export default MovieDetails;
@@ -21,5 +20,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.WHITE,
     paddingTop: 50,
+  },
+  backButtonStyle: {
+    backgroundColor: COLORS.BLACK,
+    padding: 5,
+    borderRadius: 3,
+    opacity: 0.15,
   },
 });

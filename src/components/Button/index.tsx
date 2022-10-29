@@ -1,15 +1,13 @@
-import {COLORS} from '@src/constants/styles';
-import {commonStyles} from '@src/styles/commonStyles';
 import React from 'react';
 import {
   StyleProp,
-  StyleSheet,
   Text,
   TextStyle,
   TouchableOpacity,
   View,
   ViewStyle,
 } from 'react-native';
+import {styles} from './styles';
 
 interface IButtonProps {
   label: string;
@@ -25,29 +23,11 @@ const Button: React.FC<IButtonProps> = ({
   labelStyle,
 }) => {
   return (
-    <TouchableOpacity onPress={onPress} style={[buttonStyle.base, style]}>
-      <Text style={[titleStyle.base, labelStyle]}>{label}</Text>
+    <TouchableOpacity onPress={onPress} style={[styles.container, style]}>
+      <Text style={[styles.textStyle, labelStyle]}>{label}</Text>
       <View />
     </TouchableOpacity>
   );
 };
 
 export default Button;
-
-const buttonStyle = StyleSheet.create({
-  base: {
-    flexDirection: 'row',
-    height: 47,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 5,
-    backgroundColor: COLORS.WHITE,
-  },
-});
-
-const titleStyle = StyleSheet.create({
-  base: {
-    ...commonStyles.fs_14,
-    alignSelf: 'center',
-  },
-});

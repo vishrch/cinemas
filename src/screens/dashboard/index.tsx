@@ -1,10 +1,11 @@
 import {useNavigation} from '@react-navigation/core';
+import MovieListItem from '@src/components/MovieListItem';
 import SectionHeader from '@src/components/SectionHeader';
 import {SCREENS} from '@src/constants/navigation';
-import {COLORS} from '@src/constants/styles';
+import {COLORS, ScreenWidth} from '@src/constants/styles';
 import {commonStyles} from '@src/styles/commonStyles';
-import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import React, {useState} from 'react';
+import {FlatList, ScrollView, StyleSheet} from 'react-native';
 import {useSelector} from 'react-redux';
 import {IMovies} from 'src/store/movieReducer';
 
@@ -13,15 +14,29 @@ const Dashboard: React.FC = ({}) => {
     (state: {MovieReducer: IMovies}) => state.MovieReducer.movies,
   );
   const navigation = useNavigation() as any;
+  const [showFilterModal, setFilterModal] = useState(false);
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <SectionHeader
         title="Movies"
         onViewAll={() => navigation.navigate(SCREENS.VIEW_ALL)}
+        showFilter
+        onFilter={() => setFilterModal(true)}
       />
+      <FlatList
+        data={movies.slice(0, 10)}
+        renderItem={item => (
+          <MovieListItem item={item} style={styles.movieImage} />
+        )}
+        horizontal
+        pagingEnabled
+        showsHorizontalScrollIndicator={false}
+      />
+      {showFilterModal && <></>}
+
       <SectionHeader title="Video" onViewAll={() => {}} />
-    </View>
+    </ScrollView>
   );
 };
 
@@ -33,5 +48,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.WHITE,
     paddingTop: 50,
+  },
+  movieImage: {
+    backgroundColor: 'red',
+    height: 200,
+    borderRadius: 20,
+    width: ScreenWidth / 3,
   },
 });
