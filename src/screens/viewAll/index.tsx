@@ -21,7 +21,12 @@ const ViewAll: React.FC = ({}) => {
         data={movies}
         // keyExtractor={(item, index) => index.toString()}
         renderItem={item => (
-          <MovieListItem item={item} style={styles.movieImage} />
+          <MovieListItem
+            showName
+            item={item.item}
+            containerStyle={{width: ScreenWidth / 3.5}}
+            style={styles.movieImage}
+          />
         )}
         pagingEnabled
         showsHorizontalScrollIndicator={false}
@@ -41,9 +46,7 @@ const styles = StyleSheet.create({
     paddingTop: 50,
   },
   movieImage: {
-    backgroundColor: 'red',
     height: 170,
     borderRadius: 10,
-    width: ScreenWidth / 3.5,
   },
 });

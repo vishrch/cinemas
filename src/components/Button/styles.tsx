@@ -14,5 +14,6 @@ export const styles = StyleSheet.create({
   textStyle: {
     ...commonStyles.fs_14,
     alignSelf: 'center',
+    ...commonStyles.labelWeight700,
   },
 });

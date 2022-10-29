@@ -1,5 +1,6 @@
 const initialState: IMovies = {
-  movies: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0, 0, 0, 0, 0, 0, 0],
+  movies: [],
+  nearbyCinemas: [],
 };
 
 export const MovieReducer = (
@@ -7,6 +8,16 @@ export const MovieReducer = (
   action: {type: any; data: any},
 ) => {
   switch (action.type) {
+    case 'GET_CINEMAS_LIST_SUCCESS':
+      return {
+        ...state,
+        nearbyCinemas: action?.data.cinemas,
+      };
+    case 'GET_MOVIES_LIST_SUCCESS':
+      return {
+        ...state,
+        movies: action?.data,
+      };
     default:
       return state;
   }
@@ -16,4 +27,5 @@ export default MovieReducer;
 
 export interface IMovies {
   movies: any[];
+  nearbyCinemas: any[];
 }

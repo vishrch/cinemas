@@ -11,6 +11,6 @@ export const styles = StyleSheet.create({
     ...commonStyles.flexRow,
     ...commonStyles.ph_24,
     ...commonStyles.alignItemsCenter,
-    ...commonStyles.mt_12,
+    ...commonStyles.mv_12,
   },
 });
