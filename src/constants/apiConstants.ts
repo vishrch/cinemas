@@ -6,6 +6,7 @@ const API_URL = {
     `${BASE_URL}/cinemaShowTimes/?cinema_id=${cinema_id}&date=${date}`,
   FILM_DETAILS: (film_id: string) =>
     `${BASE_URL}/filmDetails/?film_id=${film_id}`,
+  GET_TRAILERS: (film_id: string) => `${BASE_URL}/trailers/?film_id=${film_id}`,
 };
 
 export default API_URL;

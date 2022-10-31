@@ -61,5 +61,17 @@ export const useCinemas = () => {
     }
   };
 
-  return {getNearbyCinemas, getFilmDetails, movieDetails};
+  const getFilmTrailers = async (film_id: string) => {
+    try {
+      const response = (await get(API_URL.GET_TRAILERS(film_id))) as any;
+      if ((response.status = 200)) {
+        console.log('***********************', response.data);
+      }
+    } catch (err) {
+      console.log('err getting details', err);
+      return [];
+    }
+  };
+
+  return {getNearbyCinemas, getFilmDetails, movieDetails, getFilmTrailers};
 };
