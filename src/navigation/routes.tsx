@@ -1,6 +1,7 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {SCREENS} from '@src/constants/navigation';
 import Dashboard from '@src/screens/dashboard';
+import BookingHistory from '@src/screens/history';
 import MovieDetails from '@src/screens/movieDetails';
 import ViewAll from '@src/screens/viewAll';
 
@@ -23,6 +24,11 @@ const Routes = () => {
         name={SCREENS.MOVIE_DETAILS}
         options={{headerShown: false}}
         component={MovieDetails}
+      />
+      <Stack.Screen
+        name={SCREENS.HISTORY}
+        options={{headerShown: false}}
+        component={BookingHistory}
       />
     </Stack.Navigator>
   );

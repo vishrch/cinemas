@@ -1,6 +1,7 @@
 const initialState: IMovies = {
   movies: [],
   nearbyCinemas: [],
+  tickets: [],
 };
 
 export const MovieReducer = (
@@ -18,6 +19,12 @@ export const MovieReducer = (
         ...state,
         movies: action?.data,
       };
+
+    case 'BOOK_TICKET':
+      return {
+        ...state,
+        tickets: [...state.tickets, action?.data],
+      };
     default:
       return state;
   }
@@ -28,4 +35,5 @@ export default MovieReducer;
 export interface IMovies {
   movies: any[];
   nearbyCinemas: any[];
+  tickets: any[];
 }

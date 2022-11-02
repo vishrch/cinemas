@@ -17,3 +17,10 @@ export const getMoviesSuccess = (data: any) => {
     data,
   };
 };
+
+export const bookTicketAction = (data: any) => {
+  return {
+    type: 'BOOK_TICKET',
+    data,
+  };
+};

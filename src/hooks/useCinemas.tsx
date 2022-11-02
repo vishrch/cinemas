@@ -26,7 +26,7 @@ export const useCinemas = () => {
   const getCinemaShowTimes = async (cinema_id: string) => {
     try {
       const response = (await get(
-        API_URL.CINEMA_SHOW_TIMES(cinema_id, '2022-10-29'),
+        API_URL.CINEMA_SHOW_TIMES(cinema_id, '2022-11-02'),
       )) as any;
       if ((response.status = 200)) {
         dispatch(getMoviesSuccess(response.data.films));
@@ -65,7 +65,10 @@ export const useCinemas = () => {
     try {
       const response = (await get(API_URL.GET_TRAILERS(film_id))) as any;
       if ((response.status = 200)) {
-        console.log('***********************', response.data);
+        console.log(
+          '***********************',
+          response.data.trailers.high[0].film_trailer,
+        );
       }
     } catch (err) {
       console.log('err getting details', err);

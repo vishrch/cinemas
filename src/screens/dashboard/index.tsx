@@ -1,4 +1,5 @@
 import {useNavigation} from '@react-navigation/core';
+import Button from '@src/components/Button';
 import MovieListItem from '@src/components/MovieListItem';
 import SectionHeader from '@src/components/SectionHeader';
 import {SCREENS} from '@src/constants/navigation';
@@ -32,7 +33,7 @@ const Dashboard: React.FC = ({}) => {
         onFilter={() => setFilterModal(true)}
       />
       <FlatList
-        data={movies.slice(0, 10)}
+        data={(movies ?? []).slice(0, 10)}
         renderItem={item => (
           <MovieListItem
             item={item.item}
@@ -47,6 +48,12 @@ const Dashboard: React.FC = ({}) => {
       {showFilterModal && <></>}
 
       <SectionHeader title="Video" onViewAll={() => {}} />
+
+      <Button
+        // labelStyle={styles.viewAllText}
+        label="Booking History"
+        onPress={() => navigation.navigate(SCREENS.HISTORY)}
+      />
     </ScrollView>
   );
 };
