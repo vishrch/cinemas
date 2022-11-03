@@ -17,7 +17,7 @@ import {useCinemas} from 'src/hooks/useCinemas';
 import IcPlay from '@src/assets/images/play.svg';
 import {useDispatch, useSelector} from 'react-redux';
 import {bookTicketAction} from 'src/store/actions';
-import useToast from 'src/hooks/useToast';
+import useToast, {TOAST_TYPE} from 'src/hooks/useToast';
 import {IMovies} from 'src/store/movieReducer';
 import Share from 'react-native-share';
 
@@ -46,7 +46,7 @@ const MovieDetails: React.FC = ({}) => {
     setShowTime(false);
     console.log(tickets);
     if (tickets.length < 10) {
-      showToast('success', 'Booking confirmed');
+      showToast(TOAST_TYPE.SUCCESS, 'Booking confirmed');
       dispatch(
         bookTicketAction({
           time: selectedTime,
@@ -55,17 +55,20 @@ const MovieDetails: React.FC = ({}) => {
         }),
       );
     } else {
-      showToast('error', 'You Reached Limit, 10 tickets allowed in a day.');
+      showToast(
+        TOAST_TYPE.ERROR,
+        'You Reached Limit, 10 tickets allowed in a day.',
+      );
     }
   };
 
   const onShare = () => {
     Share.open({message: params.item.film_name, title: params.item.film_name})
       .then(res => {
-        console.log(res);
+        console.log('res', res);
       })
       .catch(err => {
-        err && console.log(err);
+        console.log('err', err);
       });
   };
 
@@ -93,7 +96,7 @@ const MovieDetails: React.FC = ({}) => {
             }}>
             <IcPlay />
           </TouchableOpacity>
-          <Text></Text>
+          <Text style={styles.movieName}>{params.item.film_name}</Text>
           <Button
             label="Book Ticket"
             style={{backgroundColor: COLORS.RED, ...commonStyles.mb_12}}
@@ -186,5 +189,12 @@ const styles = StyleSheet.create({
   },
   selected: {
     backgroundColor: COLORS.LIGHT_BLUE,
+  },
+  movieName: {
+    color: COLORS.WHITE,
+    textAlign: 'center',
+    ...commonStyles.mv_12,
+    ...commonStyles.fs_24,
+    ...commonStyles.fw_700,
   },
 });

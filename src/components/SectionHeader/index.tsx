@@ -11,6 +11,7 @@ interface ISectionHeader {
   onViewAll?: () => void;
   showFilter?: boolean;
   onFilter?: () => void;
+  rtl?: boolean;
 }
 
 const SectionHeader: React.FC<ISectionHeader> = ({
@@ -18,9 +19,10 @@ const SectionHeader: React.FC<ISectionHeader> = ({
   onViewAll,
   showFilter,
   onFilter = () => {},
+  rtl,
 }) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, rtl && styles.rtl]}>
       <Text style={styles.title}>{title}</Text>
       <View style={[commonStyles.flexRow, commonStyles.center]}>
         {showFilter && (

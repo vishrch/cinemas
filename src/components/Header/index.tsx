@@ -10,18 +10,20 @@ interface IHeader {
   title?: string;
   buttonStyle?: StyleProp<ViewStyle>;
   arrowColor?: COLORS;
+  rtl?: boolean;
 }
 
 const Header: React.FC<IHeader> = ({
   title,
   buttonStyle,
   arrowColor = COLORS.BLACK,
+  rtl,
 }) => {
   const navigation = useNavigation();
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, rtl && styles.rtl]}>
       <TouchableOpacity style={buttonStyle} onPress={() => navigation.goBack()}>
-        <IcArrow color={arrowColor} style={commonStyles.rotate_180} />
+        <IcArrow color={arrowColor} style={!rtl && commonStyles.rotate_180} />
       </TouchableOpacity>
       <Text style={styles.title}>{title}</Text>
     </View>

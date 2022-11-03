@@ -13,4 +13,7 @@ export const styles = StyleSheet.create({
     ...commonStyles.alignItemsCenter,
     ...commonStyles.mv_12,
   },
+  rtl: {
+    ...commonStyles.flexRowReverse,
+  },
 });

@@ -18,4 +18,7 @@ export const styles = StyleSheet.create({
     color: COLORS.LIGHT_BLUE,
     ...commonStyles.ml_8,
   },
+  rtl: {
+    ...commonStyles.flexRowReverse,
+  },
 });

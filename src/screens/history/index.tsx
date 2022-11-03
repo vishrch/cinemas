@@ -11,9 +11,12 @@ const BookingHistory: React.FC = ({}) => {
   const tickets = useSelector(
     (state: {MovieReducer: IMovies}) => state.MovieReducer.tickets,
   );
-  console.log(tickets);
 
   const time = new Date().getHours();
+
+  const min = new Date().getMinutes();
+
+  const fullTime = time + ':' + min;
   return (
     <View style={styles.container}>
       <Header />
@@ -33,7 +36,9 @@ const BookingHistory: React.FC = ({}) => {
                 commonStyles.center,
                 commonStyles.mt_8,
               ]}>
-              <View style={[styles.status, time > i.time && styles.started]} />
+              <View
+                style={[styles.status, fullTime > i.time && styles.started]}
+              />
               <Text style={styles.movie}>Time: {i.time}</Text>
             </View>
           </View>
