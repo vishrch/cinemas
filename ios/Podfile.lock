@@ -76,6 +76,7 @@ PODS:
   - fmt (6.2.1)
   - glog (0.3.5)
   - hermes-engine (0.70.4)
+  - IBMMobileFirstPlatformFoundation (8.0.2021122816)
   - libevent (2.1.12)
   - OpenSSL-Universal (1.1.1100)
   - RCT-Folly (2021.07.22.00):
@@ -304,6 +305,14 @@ PODS:
   - React-jsinspector (0.70.4)
   - React-logger (0.70.4):
     - glog
+  - react-native-get-random-values (1.8.0):
+    - React-Core
+  - react-native-ibm-mobilefirst (8.0):
+    - React
+    - react-native-ibm-mobilefirst/core (= 8.0)
+  - react-native-ibm-mobilefirst/core (8.0):
+    - IBMMobileFirstPlatformFoundation
+    - React
   - react-native-safe-area-context (4.4.1):
     - RCT-Folly
     - RCTRequired
@@ -436,6 +445,8 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
+  - react-native-get-random-values (from `../node_modules/react-native-get-random-values`)
+  - react-native-ibm-mobilefirst (from `../node_modules/react-native-ibm-mobilefirst`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -467,6 +478,7 @@ SPEC REPOS:
     - Flipper-RSocket
     - FlipperKit
     - fmt
+    - IBMMobileFirstPlatformFoundation
     - libevent
     - OpenSSL-Universal
     - SocketRocket
@@ -517,6 +529,10 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   React-logger:
     :path: "../node_modules/react-native/ReactCommon/logger"
+  react-native-get-random-values:
+    :path: "../node_modules/react-native-get-random-values"
+  react-native-ibm-mobilefirst:
+    :path: "../node_modules/react-native-ibm-mobilefirst"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   React-perflogger:
@@ -571,6 +587,7 @@ SPEC CHECKSUMS:
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 04b94705f318337d7ead9e6d17c019bd9b1f6b1b
   hermes-engine: 3623325e0d0676a45fbc544d72c57dd79fce7446
+  IBMMobileFirstPlatformFoundation: c30a5db9fac08e54e944a0b9cc9e565aea39f1b1
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
   RCT-Folly: 0080d0a6ebf2577475bda044aa59e2ca1f909cda
@@ -588,6 +605,8 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 4a893fc8f683b91befcaf56c44ad8be4506b6828
   React-jsinspector: 1d5a9e84e419a57cabc23249aec3d837d1b03a80
   React-logger: f8071ad48248781d5afdb8a07f778758529d3019
+  react-native-get-random-values: a6ea6a8a65dc93e96e24a11105b1a9c8cfe1d72a
+  react-native-ibm-mobilefirst: 30e995af8d9ec495bad455d08e5609943747e1cc
   react-native-safe-area-context: 99b24a0c5acd0d5dcac2b1a7f18c49ea317be99a
   React-perflogger: 5e41b01b35d97cc1b0ea177181eb33b5c77623b6
   React-RCTActionSheet: 48949f30b24200c82f3dd27847513be34e06a3ae

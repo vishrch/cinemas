@@ -26,7 +26,7 @@ export const useCinemas = () => {
   const getCinemaShowTimes = async (cinema_id: string) => {
     try {
       const response = (await get(
-        API_URL.CINEMA_SHOW_TIMES(cinema_id, '2022-11-02'),
+        API_URL.CINEMA_SHOW_TIMES(cinema_id, '2022-11-04'),
       )) as any;
       if ((response.status = 200)) {
         dispatch(getMoviesSuccess(response.data.films));
