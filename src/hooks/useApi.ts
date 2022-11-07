@@ -12,7 +12,7 @@ const useApi = () => {
       territory: 'XX',
       'api-version': 'v200',
       geolocation: '-22.0;14.0',
-      'device-datetime': '2022-10-29T08:30:17.360Z',
+      'device-datetime': '2022-11-04T08:30:17.360Z',
     },
   };
 

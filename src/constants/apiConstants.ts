@@ -1,7 +1,6 @@
 export const BASE_URL = 'https://api-gate2.movieglu.com';
 
-const API_URL = {
-  CINEMA_NEAR_BY: `${BASE_URL}/cinemasNearby/?n=25`,
+export const API_URL = {
   CINEMA_SHOW_TIMES: (cinema_id: string, date: string) =>
     `${BASE_URL}/cinemaShowTimes/?cinema_id=${cinema_id}&date=${date}`,
   FILM_DETAILS: (film_id: string) =>
@@ -9,4 +8,8 @@ const API_URL = {
   GET_TRAILERS: (film_id: string) => `${BASE_URL}/trailers/?film_id=${film_id}`,
 };
 
-export default API_URL;
+API_URL;
+
+export const ADAPTER_CONSTANTS = {
+  CINEMA_NEAR_BY: `/adapters/cinemasAdapter/getNearbyCinemas`,
+};
